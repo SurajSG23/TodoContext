@@ -9,6 +9,7 @@ function App() {
   return (
     <>
      <h1 className='w-full bg-red-700 text-center font-bold text-2xl text-white'>Hello</h1>
+     <h1 className='w-full bg-red-700 text-center font-bold text-2xl text-white'>Hello</h1>
     </>
   )
 }
