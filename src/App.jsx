@@ -13,6 +13,7 @@ function App() {
         prevTodo.id === id
           ? { ...prevTodo, completed: !prevTodo.completed }
           : prevTodo
+          
       )
     );
   };
