@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTodo } from "../contexts/TodoContext";
+import { FaPencilAlt } from "react-icons/fa";
+import { IoIosSave } from "react-icons/io";
 
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false);
@@ -22,12 +24,27 @@ function TodoItem({ todo }) {
         todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
       }`}
     >
-      <input
-        type="checkbox"
-        className="cursor-pointer"
-        checked={todo.completed}
-        onChange={toggleCompleted}
-      />
+      <div class="relative rounded-full">
+        <label
+          for="checkbox"
+          class="relative flex size-8 items-center  cursor-pointer justify-center overflow-hidden rounded-full bg-gradient-to-tr from-[#4158D0] via-[#C850C0] to-[#FFCC70] p-1.5 duration-100 hover:p-2 "
+        >
+          <input
+            type="checkbox"
+            class="group peer hidden"
+            id="checkbox"
+            checked={todo.completed}
+            onChange={toggleCompleted}
+          />
+          <label
+            for="checkbox"
+            class="size-full rounded-full bg-#ccbed7 peer-checked:size-0  cursor-pointer"
+          ></label>
+          <div class="absolute left-[0.75rem] h-[2px] w-[18px] -translate-y-10 translate-x-10 rotate-[-41deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
+          <div class="absolute left-0.5 top-4 h-[2px] w-[14px] -translate-x-10 -translate-y-10 rotate-[45deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
+        </label>
+      </div>
+
       <input
         type="text"
         className={`border outline-none w-full bg-transparent rounded-lg ${
@@ -49,7 +66,7 @@ function TodoItem({ todo }) {
         }}
         disabled={todo.completed}
       >
-        {isTodoEditable ? "📁" : "✏️"}
+        {isTodoEditable ? <IoIosSave className="bg-transparent text-2xl " /> : <FaPencilAlt className="bg-transparent text-xl " />}
       </button>
       {/* Delete Todo Button */}
       <button
