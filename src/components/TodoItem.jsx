@@ -20,28 +20,28 @@ function TodoItem({ todo }) {
 
   return (
     <div
-      className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
+      className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 text-black ${
         todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
       }`}
     >
-      <div class="relative rounded-full">
+      <div className="relative rounded-full">
         <label
-          for="checkbox"
-          class="relative flex size-8 items-center  cursor-pointer justify-center overflow-hidden rounded-full bg-gradient-to-tr from-[#4158D0] via-[#C850C0] to-[#FFCC70] p-1.5 duration-100 hover:p-2 "
+          htmlFor={`checkbox-${todo.id}`} 
+          className="relative flex size-8 items-center cursor-pointer justify-center overflow-hidden rounded-full bg-gradient-to-tr from-[#4158D0] via-[#C850C0] to-[#FFCC70] p-1.5 duration-100 hover:p-2"
         >
           <input
             type="checkbox"
-            class="group peer hidden"
-            id="checkbox"
+            className="group peer hidden"
+            id={`checkbox-${todo.id}`}
             checked={todo.completed}
             onChange={toggleCompleted}
           />
           <label
-            for="checkbox"
-            class="size-full rounded-full bg-#ccbed7 peer-checked:size-0  cursor-pointer"
+            htmlFor={`checkbox-${todo.id}`}
+            className="size-full rounded-full bg-#ccbed7 peer-checked:size-0 cursor-pointer"
           ></label>
-          <div class="absolute left-[0.75rem] h-[2px] w-[18px] -translate-y-10 translate-x-10 rotate-[-41deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
-          <div class="absolute left-0.5 top-4 h-[2px] w-[14px] -translate-x-10 -translate-y-10 rotate-[45deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
+          <div className="absolute left-[0.75rem] h-[2px] w-[18px] -translate-y-10 translate-x-10 rotate-[-41deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
+          <div className="absolute left-0.5 top-4 h-[2px] w-[14px] -translate-x-10 -translate-y-10 rotate-[45deg] rounded-sm bg-white duration-300 peer-checked:translate-x-0 peer-checked:translate-y-0"></div>
         </label>
       </div>
 
